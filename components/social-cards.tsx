@@ -1,11 +1,11 @@
 "use client"
 
 import type React from "react"
-
+import { Github, Linkedin, Facebook } from "lucide-react"
 import { useRef, useState } from "react"
 
 interface Card {
-  icon: string
+  icon: React.ReactNode
   title: string
   url: string
   buttonText: string
@@ -13,19 +13,19 @@ interface Card {
 
 const cards: Card[] = [
   {
-    icon: "fa-facebook-f",
+    icon: <Facebook className="w-20 h-20" />,
     title: "Facebook",
     url: "https://www.facebook.com/Thanhson09012004",
     buttonText: "Follow me",
   },
   {
-    icon: "fa-github",
+    icon: <Github className="w-20 h-20" />,
     title: "GitHub",
     url: "https://github.com/Sone901",
     buttonText: "Follow me",
   },
   {
-    icon: "fa-linkedin-in",
+    icon: <Linkedin className="w-20 h-20" />,
     title: "LinkedIn",
     url: "https://www.linkedin.com/in/tranthanhson-20040109-tts/",
     buttonText: "Connect",
@@ -75,9 +75,9 @@ export default function SocialCards() {
             />
 
             <div className="absolute inset-0 bg-slate-950 rounded-2xl flex flex-col justify-center items-center gap-6 z-10">
-              <i
-                className={`fa-brands ${card.icon} text-8xl text-slate-700 group-hover:text-cyan-400 transition-colors duration-300`}
-              />
+              <div className="text-slate-700 group-hover:text-cyan-400 transition-colors duration-300">
+                {card.icon}
+              </div>
               <h3 className="text-2xl font-bold text-white">{card.title}</h3>
               <a
                 href={card.url}
